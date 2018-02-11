@@ -1,0 +1,1 @@
+-- Populate 3 values in the table
