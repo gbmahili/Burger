@@ -5,9 +5,12 @@ var connection = require("./connection.js");
 var orm = {
     selectAll : function (tableName) {
         var query = "SELECT * FROM ??";
-        connection.query(query,[tableName, function (err, results) {
+        connection.query(query,[tableName], function (err, results) {
+            if (err) throw err;
             console.log(results);
-        }])
+            return results;
+        })
+        
     }
 }
 
