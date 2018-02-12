@@ -9,9 +9,7 @@ var orm = {
             if (err) throw err;
             console.log(results);
             return results;
-        })
-        
+        })       
     }
 }
-
 module.exports = orm;
