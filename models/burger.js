@@ -1,9 +1,9 @@
 var orm = require("./../config/orm.js");
 
 var burgers = {
-    all : function(cb) {
+    all: function (functionToProcessResults) {
         orm.all("burgers", function(res){
-            cb(res);
+            functionToProcessResults(res);
         })
     }
 }
