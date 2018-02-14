@@ -1,12 +1,21 @@
 <div class="col-md-4">
-    {{#each burger}}
-    <ul class="list-group">
-        <li class="list-group-item">
-            {{this.id}}. {{this.burger_name}}
-        </li>
-        <a href="#" data-burgerId="{{this.id}}" class="btn btn-primary">Devour</a>
-        <br>
-    </ul>
+    {{#each burger}} 
+        {{#unless this.devoured}}
+            <ul class="list-group">
+                <li class="list-group-item">
+                    {{this.id}}. {{this.burger_name}}
+                </li>
+                <a href="#" data-burgerId="{{this.id}}" class="btn btn-primary">Devour</a>
+                <br>
+            </ul>    
+        {{else}}
+            {{!-- <ul class="list-group">
+                <li class="list-group-item">
+                    {{this.id}}. {{this.burger_name}}
+                </li>
+                <br>
+            </ul> --}}
+        {{/unless}} 
     {{/each}}
 </div>
 
@@ -37,12 +46,21 @@
 
 <div class="col-md-4">
      {{#each burger}}
+         {{#unless this.devoured}}
+        {{!-- <ul class="list-group">
+            <li class="list-group-item">
+                {{this.id}}. {{this.burger_name}}
+            </li><br>
+        </ul> --}}
+        {{else}}
         <ul class="list-group">
             <li class="list-group-item">
                 {{this.id}}. {{this.burger_name}}
             </li>
-            <a href="#" data-burgerId="{{this.id}}" class="btn btn-primary">Devour</a><br>
+            {{!-- <a href="#" data-burgerId="{{this.id}}" class="btn btn-primary">Devour</a> --}}
+            <br>
         </ul>
+         {{/unless}}
      {{/each}}
 </div>
 
