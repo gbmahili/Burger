@@ -1,12 +1,48 @@
 <div class="col-md-4">
-
+    {{#each burger}}
     <ul class="list-group">
-        {{#each burger}}
-        <li class="list-group-item">        
+        <li class="list-group-item">
             {{this.id}}. {{this.burger_name}}
-            <button class="btn" data-burgerId="{{this.id}}" class="devourBurger">Devour!</button>        
-        </li> <br>
-        {{/each}}
+        </li>
+        <a href="#" data-burgerId="{{this.id}}" class="btn btn-primary">Devour</a>
+        <br>
     </ul>
-
+    {{/each}}
 </div>
+
+<div class="col-md-4">
+    <p>Which burger would you like to devour?</p>
+    <div class="input-group">
+        <input type="text" class="form-control" aria-label="Burger name" placeholder="Enter your burger or choose from the list">
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-secondary submit">Submit</button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">The Royale with Cheese</a>
+                <a class="dropdown-item" href="#">Classic Cheeseburger</a>
+                <a class="dropdown-item" href="#">The Seamus with American and Grilled Onions</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Cheese Burger with American and Grilled Onions</a>
+                <a class="dropdown-item" href="#">The Bang Bang Burger</a>
+                <a class="dropdown-item" href="#">Hook Burger</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" id="clearBurger">Clear</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+     {{#each burger}}
+        <ul class="list-group">
+            <li class="list-group-item">
+                {{this.id}}. {{this.burger_name}}
+            </li>
+            <a href="#" data-burgerId="{{this.id}}" class="btn btn-primary">Devour</a><br>
+        </ul>
+     {{/each}}
+</div>
+
