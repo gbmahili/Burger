@@ -24,7 +24,7 @@
     <div class="input-group">
         <input type="text" class="form-control" aria-label="Burger name" placeholder="Enter your burger or choose from the list">
         <div class="input-group-btn">
-            <button type="button" class="btn btn-secondary submit">Submit</button>
+            <button type="button" class="btn btn-secondary addBurger">Submit</button>
             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
@@ -63,4 +63,53 @@
          {{/unless}}
      {{/each}}
 </div>
+
+<script>
+    $(function () {
+            $(".addBurger").on("click", function (e) {
+                e.preventDefault();
+                alert("Foo");
+                // var id = $(this).data("id");
+                // var newSleep = $(this).data("newsleep");
+
+                // var newSleepState = {
+                //     sleepy: newSleep
+                // };
+
+                // // Send the PUT request.
+                // $.ajax("/api/cats/" + id, {
+                //     type: "PUT",
+                //     data: newSleepState
+                // }).then(
+                //     function () {
+                //         console.log("changed sleep to", newSleep);
+                //         // Reload the page to get the updated list
+                //         location.reload();
+                //     }
+                // );
+            });
+
+            // $(".create-form").on("submit", function (event) {
+            //     // Make sure to preventDefault on a submit event.
+            //     event.preventDefault();
+
+            //     var newCat = {
+            //         name: $("#ca").val().trim(),
+            //         sleepy: $("[name=sleepy]:checked").val().trim()
+            //     };
+
+            //     // Send the POST request.
+            //     $.ajax("/api/cats", {
+            //         type: "POST",
+            //         data: newCat
+            //     }).then(
+            //         function () {
+            //             console.log("created new cat");
+            //             // Reload the page to get the updated list
+            //             location.reload();
+            //         }
+            //     );
+            // });
+        });
+</script>
 
