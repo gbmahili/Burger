@@ -8,7 +8,7 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
-    burger.all(function(data){
+    burger.selectAll(function(data){
         var burgerData = {
             burger : data
         };
@@ -19,7 +19,7 @@ router.get("/", function(req, res) {
 
 router.post("/", function (req, res) {
     var current_timestamp = "current_timestamp()";
-    burger.create(["burger_name", "devoured"], [req.body.burger_name, false], function (result) {
+    burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, false], function (result) {
         //INSERT INTO burgers (burger_name,devoured) VALUES("The Seamus with American and Grilled Onions",false);       
         res.render("index", result);
     });
@@ -31,7 +31,7 @@ router.put("/", function (req, res) {
 
     console.log("condition", condition);
 
-    burger.update(
+    burger.updateOne(
         {
             devoured: true
         },

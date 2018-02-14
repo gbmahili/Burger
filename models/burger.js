@@ -1,19 +1,19 @@
 var orm = require("./../config/orm.js");
 
 var burgers = {
-    all: function (functionToProcessResults) {
-        orm.all("burgers", function(res){
+    selectAll: function (functionToProcessResults) {
+        orm.selectAll("burgers", function(res){
             functionToProcessResults(res);
         })
     },
     // The variables cols and vals are arrays.
-    create: function (cols, vals, functionToProcessResults) {
-        orm.create("burgers", cols, vals, function (res) {
+    insertOne: function (cols, vals, functionToProcessResults) {
+        orm.insertOne("burgers", cols, vals, function (res) {
             functionToProcessResults(res);
         });
     },
-    update: function (objColVals, condition, functionToProcessResults) {
-        orm.update("burgers", objColVals, condition, function (res) {
+    updateOne: function (objColVals, condition, functionToProcessResults) {
+        orm.updateOne("burgers", objColVals, condition, function (res) {
             functionToProcessResults(res);
         });
     }

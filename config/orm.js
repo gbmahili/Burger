@@ -42,14 +42,14 @@ function objToSql(ob) {
 
 // ORM
 var orm = {
-    all : function (tableName, functionToProcessResults) {
+    selectAll : function (tableName, functionToProcessResults) {
         var query = "SELECT * FROM " + tableName + ";";
         connection.query(query, function (err, results) {
             if (err) throw err;
             functionToProcessResults(results);
         });       
     },
-    create: function (tableName, cols, vals, functionToProcessResults) {
+    insertOne: function (tableName, cols, vals, functionToProcessResults) {
         var queryString = "INSERT INTO " + tableName;
         queryString += " (";
         queryString += cols.toString();
@@ -68,7 +68,7 @@ var orm = {
         });
     },
     // An example of objColVals would be {id: 6, devoured: false}
-    update: function (tableName, objColVals, condition, functionToProcessResults) {
+    updateOne: function (tableName, objColVals, condition, functionToProcessResults) {
         var queryString = "UPDATE " + tableName;
 
         queryString += " SET ";
