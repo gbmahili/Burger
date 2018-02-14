@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-		<link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./../../public/assets/burger_style.css" type="text/css" />
 		<title>GBM - Eat-Da-Bargar</title>
 		<script src="https://code.jquery.com/jquery.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+		<style>
+			.container{
+				margin-top: 5%;
+			}
+
+			.title{
+				height: 100px;
+				background: #0275D8;
+				width: 100%;
+				text-align: center;
+				line-height: 100px;
+				color: #fff;
+				font-size: 2em;
+			}
+			.title > p{
+				width: 100%;
+				text-align: center;
+			}
+		</style>
+
 	</head>
 	<body>
-		{{{ body }}}
+		
+		<div class="title text-center">
+		 GBM Eat - Da - Burger
+		</div>
+		<div class="container">
+			<div class="row">
+				 {{{ body }}}
+			</div>
+		</div>
+		
 	</body>
 </html>
