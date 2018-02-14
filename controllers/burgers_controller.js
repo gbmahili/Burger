@@ -17,4 +17,13 @@ router.get("/", function(req, res) {
     });
 });
 
+router.post("/", function (req, res) {
+    var current_timestamp = "current_timestamp()";
+    burger.create(["burger_name", "devoured"], [req.body.burger_name, false], function (result) {
+        //INSERT INTO burgers (burger_name,devoured) VALUES("The Seamus with American and Grilled Onions",false);       
+        res.render("index", result);
+    });
+    //console.log(req.body);
+});
+
 module.exports = router;
