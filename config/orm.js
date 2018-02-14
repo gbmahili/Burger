@@ -66,6 +66,24 @@ var orm = {
             }
             functionToProcessResults(result);
         });
+    },
+    // An example of objColVals would be {id: 6, devoured: false}
+    update: function (tableName, objColVals, condition, functionToProcessResults) {
+        var queryString = "UPDATE " + tableName;
+
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+
+        console.log(queryString);
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            functionToProcessResults(result);
+        });
     }
 }
 module.exports = orm;

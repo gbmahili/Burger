@@ -11,6 +11,11 @@ var burgers = {
         orm.create("burgers", cols, vals, function (res) {
             functionToProcessResults(res);
         });
+    },
+    update: function (objColVals, condition, functionToProcessResults) {
+        orm.update("burgers", objColVals, condition, function (res) {
+            functionToProcessResults(res);
+        });
     }
 }
 

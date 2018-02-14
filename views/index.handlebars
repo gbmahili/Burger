@@ -5,7 +5,7 @@
                 <li class="list-group-item">
                     {{this.id}}. {{this.burger_name}}
                 </li>
-                <a href="#" data-burgerId="{{this.id}}" class="btn btn-primary">Devour</a>
+                <a href="#" data-burgerId="{{this.id}}" class="btn btn-primary devourBurger">Devour</a>
                 <br>
             </ul>    
         {{else}}
@@ -75,8 +75,9 @@
     //Clear the burger input field
     $("#clearBurgerInput").click(function(){
         $(".burgerName").val("");
-    })
+    });
 
+    // Add Burger to the database
     $(".addBurger").on("click", function (e) {
         e.preventDefault();
         burgerName = $(".burgerName").val().trim();
@@ -96,6 +97,25 @@
          );
          $(".burgerName").val("");
     });
+
+    // Update burger's devoured status to true:
+    $(".devourBurger").click(function(e){
+        e.preventDefault();
+        var burgerId = $(this).attr("data-burgerId");
+        var burgerIdInfo = {
+            burger_id : burgerId
+        }
+        // Send a PUT request
+        $.ajax("/", {
+            type: "PUT",
+            data: burgerIdInfo
+        }).then(function(){
+            console.log("changed sleep to", burgerId);
+            // Reload the page to get an updated list of burgers
+            location.reload();
+        })
+        console.log(burgerId);
+    })
 });
 </script>
 
